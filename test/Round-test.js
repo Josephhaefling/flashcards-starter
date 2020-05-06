@@ -99,5 +99,20 @@ it('should be able to calculate the percentage of correct guesses', () => {
   round.takeTurn('what?')
   round.takeTurn('black')
   expect(round.calculatePercentCorrect()).to.equal(33)
+});
+it('should print round over you answered <>% of the questions correctly', () => {
+  card1 = new Card(1, 'Can I?', ['yes', 'no', "don't talk to me"], 'no')
+  card2 = new Card(2, 'Huh?', ['what?', 'huh?', 'did you say something?'], 'what?')
+  card3 = new Card(3, 'Whats your favorite color?', ['red', 'blue', 'green', 'black'], 'green')
+  turn = new Turn('no', card1)
+  turn = new Turn('what?', card2)
+  turn = new Turn('black', card3)
+  deck = new Deck([card1, card2, card3])
+  round = new Round(deck)
+
+  round.takeTurn('no')
+  round.takeTurn('what?')
+  round.takeTurn('black')
+  expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
 })
 })

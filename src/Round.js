@@ -11,12 +11,13 @@ class Round {
   updateCurrentCard = () => {
     this.currentCard = this.deck[this.turns]
   }
+
   returnCurrentCard = () => {
     return this.currentCard
   }
+
   takeTurn = (guess) => {
     this.turns ++
-    console.log('guess', guess);
     let newTurn = new Turn(guess, this.currentCard)
     if (newTurn.evaluateGuess() === false) {
       this.incorrectAnswers.push(this.currentCard.id)
@@ -24,8 +25,15 @@ class Round {
       this.updateCurrentCard()
       return turn.giveFeedback()
   }
+
   calculatePercentCorrect = () => {
     return Math.floor(this.incorrectAnswers.length / this.turns * 100)
+  }
+
+  endRound = () => {
+    let endOfRound = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    console.log(endOfRound);
+    return endOfRound
   }
 }
 
