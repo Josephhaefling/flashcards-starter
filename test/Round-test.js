@@ -6,14 +6,6 @@ const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 const Turn = require('../src/Turn');
 
-// beforeEach(() => {
-//   card1 = new Card(1, 'Can I?', ['yes', 'no', "don't talk to me"], 'no')
-//   card2 = new Card(2, 'Huh?', ['what?', 'huh?', 'did you say something?'], 'what?')
-//   card3 = new Card(3, 'Whats your favorite color?', ['red', 'blue', 'green', 'black'], 'green')
-//   turn = new Turn('what?', card2)
-//   deck = new Deck([card1, card2, card3])
-//   round = new Round(deck)
-// })
 
 describe('Card', () => {
 it('should be a function', () => {
