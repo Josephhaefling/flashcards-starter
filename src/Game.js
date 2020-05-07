@@ -10,6 +10,7 @@ class Game {
   constructor() {
     this.currentRound = null;
     this.roundCount = 0;
+    this.startTime = Date.now()
   }
 
   start() {
