@@ -38,7 +38,8 @@ async function main(round) {
 
     if(!round.returnCurrentCard()) {
       let endTime = Date.now()
-      round.endRound(startTime, endTime);
+      let time = round.getTime(startTime, endTime)
+      round.endRound(time);
     } else {
       main(round);
     }

@@ -13,17 +13,11 @@ class Turn {
   evaluateGuess = () => {
     if (this.userGuess === this.card.correctAnswer) {
       this.userIsCorrect = true;
-      return this.userIsCorrect
-    } else {
-      return this.userIsCorrect
     }
+      return this.userIsCorrect
   }
   giveFeedback = () => {
-    if (this.userIsCorrect) {
-      return 'correct'
-    } else {
-      return 'incorrect'
-    }
+    return this.userIsCorrect ?  'correct' : 'incorrect'
   }
 }
 

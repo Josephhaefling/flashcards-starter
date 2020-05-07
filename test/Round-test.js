@@ -48,7 +48,6 @@ describe('Card', () => {
     expect(round.takeTurn('no')).to.equal('correct')
   });
   it('should be able to return if the guess is incorrect', () => {
-
     expect(round.takeTurn('green')).to.equal('incorrect')
   });
   it('should be able to calculate the percentage of correct guesses', () => {
@@ -61,10 +60,10 @@ describe('Card', () => {
     round.takeTurn('no')
     round.takeTurn('what?')
     round.takeTurn('black')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!')
+    let time = round.getTime(1588815160424, 1588816260424)
+    expect(round.endRound(time)).to.equal('** Round over! ** You answered 33% of the questions correctly! It took you 18:20 to complete this round.')
   });
   it('should get the time it took for the user to complete the round', () => {
-
     expect(round.getTime(1588815160424, 1588816260424)).to.equal('18:20')
   })
 })

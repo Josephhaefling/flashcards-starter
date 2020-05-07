@@ -29,9 +29,8 @@ class Round {
     return Math.floor(this.incorrectAnswers.length / this.turns * 100)
   }
 
-  endRound = (startTime, endTime) => {
-    let userTime = this.getTime(startTime, endTime)
-    let endOfRound = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! It took you ${userTime} to complete this round.`
+  endRound = (time) => {
+    let endOfRound = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! It took you ${time} to complete this round.`
     console.log(endOfRound);
     return endOfRound
   }
