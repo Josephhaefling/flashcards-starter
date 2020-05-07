@@ -29,10 +29,18 @@ class Round {
     return Math.floor(this.incorrectAnswers.length / this.turns * 100)
   }
 
-  endRound = () => {
-    let endOfRound = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  endRound = (startTime, endTime) => {
+    let userTime = this.getTime(startTime, endTime)
+    let endOfRound = `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! It took you ${userTime} to complete this round.`
     console.log(endOfRound);
     return endOfRound
+  }
+
+  getTime = (startTime, endTime) => {
+    let difference = endTime - startTime
+    let min = Math.floor(difference / 60000)
+    let sec = ((difference % 60000) / 1000).toFixed(0)
+    return `${min}:${(sec < 10 ? "0" : "")}${sec}`
   }
 }
 
