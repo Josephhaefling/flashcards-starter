@@ -5,8 +5,16 @@ const Deck = require('../src/Deck')
 const Round = require('../src/Round')
 const Game = require('../src/Game')
 
+let deck
+let round
+let prototypeQuestions
+let game
+
 beforeEach(() => {
   prototypeQuestions = data.prototypeData
+  deck = new Deck(prototypeQuestions)
+  round = new Round(deck)
+  game = new Game()
 })
 
 describe('Game', () => {
@@ -14,7 +22,6 @@ describe('Game', () => {
     expect(true).to.equal(true)
   });
   it('should keep track of the current round', () => {
-    game = new Game()
 
     game.start()
     expect(game.roundCount).to.equal(1)
@@ -29,14 +36,11 @@ describe('Game', () => {
     })
   });
   it('should create a new deck', () => {
-    let deck = new Deck(prototypeQuestions)
 
     game.start()
     expect(game.currentRound.deck).to.deep.equal(prototypeQuestions)
   });
   it('should create a new deck', () => {
-    let deck = new Deck(prototypeQuestions)
-    let round = new Round(deck)
 
     game.start()
     expect(game.currentRound.deck).to.deep.equal(round.deck)

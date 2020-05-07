@@ -4,6 +4,11 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
+let card1
+let card2
+let card3
+let deck
+
 beforeEach(() => {
   card1 = new Card(1, 'Can I?', ['yes', 'no', "don't talk to me"], 'no')
   card2 = new Card(2, 'Huh?', ['what?', 'huh?', 'did you say something?'], 'no')
