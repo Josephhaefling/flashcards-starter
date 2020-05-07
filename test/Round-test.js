@@ -60,7 +60,8 @@ describe('Card', () => {
     round.takeTurn('no')
     round.takeTurn('what?')
     round.takeTurn('black')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly! It took you NaN:NaN to complete this round.')
+    let time = round.getTime(1588815160424, 1588816260424)
+    expect(round.endRound(time)).to.equal('** Round over! ** You answered 33% of the questions correctly! It took you 18:20 to complete this round.')
   });
   it('should get the time it took for the user to complete the round', () => {
     expect(round.getTime(1588815160424, 1588816260424)).to.equal('18:20')
